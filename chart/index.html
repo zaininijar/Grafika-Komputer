@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart</title>
+  </head>
+  <body style="overflow: hidden">
+    <div
+      style="
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <canvas id="pieChart"></canvas>
+    </div>
+
+    <script src="./chartjs/Chart.js"></script>
+
+    <script>
+      const ctx = document.getElementById("pieChart");
+
+      const data = {
+        labels: ["Honda", "Suzuki", "Yamaha", "Kawasaki"],
+        datasets: [
+          {
+            data: [254, 90, 212, 72],
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+              "rgb(255, 105, 230)",
+            ],
+            hoverOffset: 4,
+          },
+        ],
+      };
+
+      new Chart(ctx, {
+        type: "pie",
+        data: data,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
